@@ -12567,11 +12567,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\FP_production\\Desktop\\Git Projects\\core2test\\core2test.csproj",
+      "projectUniqueName": "C:\\Users\\FP_production\\Desktop\\Git Projects\\core2test\\core2test.csproj",
       "projectName": "core2test",
-      "projectPath": "c:\\Users\\FP_production\\Desktop\\Git Projects\\core2test\\core2test.csproj",
+      "projectPath": "C:\\Users\\FP_production\\Desktop\\Git Projects\\core2test\\core2test.csproj",
       "packagesPath": "C:\\Users\\FP_production\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\FP_production\\Desktop\\Git Projects\\core2test\\obj\\",
+      "outputPath": "C:\\Users\\FP_production\\Desktop\\Git Projects\\core2test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
