@@ -27,7 +27,7 @@ namespace core2test.Controllers
             return _context.People.ToList();
         }
 
-        [HttpGet("{id}", Name = "GetTodo")]
+        [HttpGet("{id}", Name = "GetPerson")]
         public IActionResult GetById(long id)
         {
             var item = _context.People.FirstOrDefault(t => t.Id == id);
