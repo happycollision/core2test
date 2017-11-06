@@ -6,11 +6,11 @@ using System.Linq;
 namespace core2test.Controllers
 {
     [Route("api/[controller]")]
-    public class TodoController : Controller
+    public class PersonController : Controller
     {
         private readonly PersonContext _context;
 
-        public TodoController(PersonContext context)
+        public PersonController(PersonContext context)
         {
             _context = context;
 
@@ -19,6 +19,23 @@ namespace core2test.Controllers
                 _context.People.Add(new Person { Name = "Jonny" });
                 _context.SaveChanges();
             }
-        }       
+        }
+
+        [HttpGet]
+        public IEnumerable<Person> GetAll()
+        {
+            return _context.People.ToList();
+        }
+
+        [HttpGet("{id}", Name = "GetTodo")]
+        public IActionResult GetById(long id)
+        {
+            var item = _context.People.FirstOrDefault(t => t.Id == id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(item);
+        }
     }
 }
