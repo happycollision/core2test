@@ -51,5 +51,41 @@ namespace core2test.Controllers
 
             return CreatedAtRoute("GetPerson", new { id = item.Id }, item);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(long id, [FromBody] Person item)
+        {
+            if (item == null || item.Id != id)
+            {
+                return BadRequest();
+            }
+
+            var person = _context.People.FirstOrDefault(t => t.Id == id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            person.IsHappy = item.IsHappy;
+            person.Name = item.Name;
+
+            _context.People.Update(person);
+            _context.SaveChanges();
+            return new NoContentResult();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var person = _context.People.FirstOrDefault(t => t.Id == id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            _context.People.Remove(person);
+            _context.SaveChanges();
+            return new NoContentResult();
+        }
     }
 }
