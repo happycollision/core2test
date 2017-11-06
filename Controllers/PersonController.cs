@@ -37,5 +37,19 @@ namespace core2test.Controllers
             }
             return new ObjectResult(item);
         }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] Person item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+
+            _context.People.Add(item);
+            _context.SaveChanges();
+
+            return CreatedAtRoute("GetPerson", new { id = item.Id }, item);
+        }
     }
 }
