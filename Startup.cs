@@ -10,15 +10,15 @@ namespace core2test
     {       
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PersonContext>(opt => opt.UseInMemoryDatabase("People"));
+            services.AddDbContext<MyDbContext>(opt => opt.UseInMemoryDatabase("People"));
             services.AddMvc();
-            services.AddJsonApi<PersonContext>(opt => 
+            services.AddJsonApi<MyDbContext>(opt => 
             {
                 opt.Namespace = "api";
             });
         }
 
-        public async void Configure(IApplicationBuilder app, PersonContext context)
+        public async void Configure(IApplicationBuilder app, MyDbContext context)
         {
             context.Database.EnsureCreated();
             if(await context.People.AnyAsync() == false) 

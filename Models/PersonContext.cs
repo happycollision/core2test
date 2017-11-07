@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace core2test.Models
 {
-    public class PersonContext : DbContext
+    public class MyDbContext : DbContext
     {
-        public PersonContext(DbContextOptions<PersonContext> options)
+        public MyDbContext(DbContextOptions<MyDbContext> options)
             : base(options)
         {
         }
