@@ -1,8 +1,10 @@
+using JsonApiDotNetCore.Models;
+
 namespace core2test.Models
 {
-    public class Person
+    public class Person : Identifiable
     {
-        public long Id { get; set; }
+        [Attr("name")]
         public string Name { get; set; }
         public bool IsHappy { get; set; }
     }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using core2test.Models;
+using JsonApiDotNetCore.Extensions;
 
 namespace core2test
 {
@@ -11,11 +12,21 @@ namespace core2test
         {
             services.AddDbContext<PersonContext>(opt => opt.UseInMemoryDatabase("People"));
             services.AddMvc();
+            services.AddJsonApi<PersonContext>();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public async void Configure(IApplicationBuilder app, PersonContext context)
         {
-            app.UseMvc();
+            context.Database.EnsureCreated();
+            if(await context.People.AnyAsync() == false) 
+            {
+                context.People.Add(new Person {
+                    Name = "John Doe"
+                });
+                context.SaveChanges();
+            }
+
+            app.UseJsonApi();
         }
     }
 }
