@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace core2test.Controllers
 {
-    public class PersonController : JsonApiController<Person>
+    public class PeopleController : JsonApiController<Person>
     {
         // private readonly IJsonApiContext _context;
 
-        public PersonController(
+        public PeopleController(
             IJsonApiContext jsonApiContext,
             IResourceService<Person> resourceService,
             ILoggerFactory loggerFactory)
