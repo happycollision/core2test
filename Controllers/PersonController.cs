@@ -8,7 +8,6 @@ using Microsoft.Extensions.Logging;
 
 namespace core2test.Controllers
 {
-    [Route("api/[controller]")]
     public class PersonController : JsonApiController<Person>
     {
         // private readonly IJsonApiContext _context;

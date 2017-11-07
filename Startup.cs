@@ -12,7 +12,10 @@ namespace core2test
         {
             services.AddDbContext<PersonContext>(opt => opt.UseInMemoryDatabase("People"));
             services.AddMvc();
-            services.AddJsonApi<PersonContext>();
+            services.AddJsonApi<PersonContext>(opt => 
+            {
+                opt.Namespace = "api";
+            });
         }
 
         public async void Configure(IApplicationBuilder app, PersonContext context)
