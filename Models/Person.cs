@@ -6,6 +6,8 @@ namespace core2test.Models
     {
         [Attr("name")]
         public string Name { get; set; }
+
+        [Attr("isHappy")]
         public bool IsHappy { get; set; }
     }
 }
